@@ -1,0 +1,25 @@
+   hide circle
+   skinparam linetype ortho
+
+   entity "nf_workflows" as nf_workflows{
+     --
+     *ID : KEYTYPE
+     workflow_id : VARCHAR(16)
+     status : VARCHAR(16)
+     creation_time : TIMESTAMP
+     completion_time : TIMESTAMP
+     create_request : JSONB
+     begin_request : JSONB
+     progress_request : JSONB
+     complete_request : JSONB
+    }
+
+   entity "nf_heartbeat" as nf_heartbeat{
+     --
+     *ID : KEYTYPE
+     workflow_id : VARCHAR(16)
+     creation_time : TIMESTAMP
+     heartbeat_request : JSONB
+    }
+
+   nf_heartbeat }o..|| nf_workflows

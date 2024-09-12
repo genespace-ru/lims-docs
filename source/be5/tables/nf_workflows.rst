@@ -1,0 +1,67 @@
+nf_workflows
+============
+
+NF workflows
+  Хранит JSON сообщения от Nexflow о ходе выполнения worrkflow.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Колонка
+     - Тип
+     - Описание
+
+   * - ID
+     - KEYTYPE PK
+
+       autoincrement
+     - 
+
+   * - workflow_id
+     - VARCHAR(16)
+     - Nexflow worrkflow_id
+
+   * - status
+     - VARCHAR(16)
+
+       can be null
+     - workflow execution status
+
+   * - creation_time
+     - TIMESTAMP
+
+       can be null
+
+       Defult value: CURRENT_TIMESTAMP
+     - workflow creation time
+
+   * - completion_time
+     - TIMESTAMP
+
+       can be null
+     - workflow completion time
+
+   * - create_request
+     - JSONB
+
+       can be null
+     - request JSON - /trace/create
+
+   * - begin_request
+     - JSONB
+
+       can be null
+     - request JSON - /trace/begin
+
+   * - progress_request
+     - JSONB
+
+       can be null
+     - request JSON - /trace/progress
+
+   * - complete_request
+     - JSONB
+
+       can be null
+     - request JSON - /trace/complete
+

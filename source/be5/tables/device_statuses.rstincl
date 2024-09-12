@@ -1,0 +1,28 @@
+device_statuses
+^^^^^^^^^^^^^^^
+
+Device statuses
+
+.. list-table::
+   :header-rows: 1
+
+   * - Колонка
+     - Тип
+     - Описание
+
+   * - ID
+     - KEYTYPE PK
+     - 
+
+   * - name
+     - VARCHAR(100)
+     - 
+
+   * - description
+     - TEXT
+
+       can be null
+     - 
+
+Служебные поля: creationDate___, modificationDate___, whoInserted___, whoModified___
+

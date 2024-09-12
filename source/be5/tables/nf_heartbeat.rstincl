@@ -1,0 +1,38 @@
+nf_heartbeat
+^^^^^^^^^^^^
+
+NF heartbeat
+
+.. list-table::
+   :header-rows: 1
+
+   * - Колонка
+     - Тип
+     - Описание
+
+   * - ID
+     - KEYTYPE PK
+
+       autoincrement
+     - 
+
+   * - workflow_id
+     - VARCHAR(16)
+
+       Reference: nf_workflows
+     - Nexflow workflow_id
+
+   * - creation_time
+     - TIMESTAMP
+
+       can be null
+
+       Defult value: CURRENT_TIMESTAMP
+     - Heartbeat time
+
+   * - heartbeat_request
+     - JSONB
+
+       can be null
+     - request JSON - /trace/heartbeat
+

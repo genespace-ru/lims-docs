@@ -1,0 +1,11 @@
+diagrams:
+  - projects:
+      tables: [samples, projects]
+  - devices:
+      tables: [devices, device_types, device_statuses]
+  - nextflow:
+      tables: [nf_workflows, nf_heartbeat]
+
+nested_tables: [devices, device_types, device_statuses, samples, projects, nf_workflows, nf_heartbeat]
+
+  
