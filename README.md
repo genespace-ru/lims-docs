@@ -1,4 +1,4 @@
-# sirius-erp-docs
+# lims-docs
 Документация по LIMS
 
 ## For developer
