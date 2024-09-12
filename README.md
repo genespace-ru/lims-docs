@@ -25,8 +25,8 @@ You can open in the browser generated html files fro 'target' directory.
 7. When you pull you chages int github, the documentation on readthedocs will be automatically rebuilded due to hit webhook.
 
 8. Open link
-<br/>https://biouml.readthedocs.io
-<br/>https://biouml.rtfd.io
+<br/>https://lims-docs.readthedocs.io/
+<br/>https://lims-docs.rtfd.io/
 
 
 #### PDF
