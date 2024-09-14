@@ -1,0 +1,52 @@
+   hide circle
+   skinparam linetype ortho
+
+   entity "attributes" as attributes{
+     --
+     *ID : KEYTYPE
+     group : INT
+     title : VARCHAR(100)
+     title_ru : VARCHAR(100)
+     description : TEXT
+     description_ru : TEXT
+     comment : TEXT
+     type : INT
+     dictionary : VARCHAR(100)
+     displayIfEmpty : ENUM('no','yes')
+     displayOrder : VARCHAR(5)
+     urlMask : VARCHAR(100)
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "attribute_types" as attribute_types{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(20)
+     description : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "attribute_groups" as attribute_groups{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(100)
+     title_ru : VARCHAR(100)
+     description : TEXT
+     description_ru : TEXT
+     comment : TEXT
+     displayOrder : VARCHAR(5)
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   attributes }o..|| attribute_groups
+   attributes }o..|| attribute_types

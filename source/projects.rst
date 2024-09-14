@@ -8,5 +8,7 @@
             
 .. include:: ./be5/tables/projects.rstincl
 
+.. include:: ./be5/tables/runs.rstincl
+
 .. include:: ./be5/tables/samples.rstincl
  

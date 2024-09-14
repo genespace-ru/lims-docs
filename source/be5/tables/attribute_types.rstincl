@@ -1,0 +1,37 @@
+attribute_types
+^^^^^^^^^^^^^^^
+
+Типы аттрибутов
+  Типы  аттрибутов (свойств) для аннотации SNV и CNV.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Колонка
+     - Тип
+     - Описание
+
+   * - ID
+     - KEYTYPE PK
+
+       autoincrement
+     - 
+
+   * - title
+     - VARCHAR(20)
+     - Название типа аттрибута.
+
+   * - description
+     - TEXT
+
+       can be null
+     - Описание типа аттрибута.
+
+   * - comment
+     - TEXT
+
+       can be null
+     - Комментарий.
+
+Служебные поля: creationDate___, modificationDate___, whoInserted___, whoModified___
+

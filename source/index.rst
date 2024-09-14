@@ -5,6 +5,7 @@ LIMS
    :maxdepth: 2
    :caption: LIMS
 
+   attributes.rst
    projects.rst
    devices.rst
 

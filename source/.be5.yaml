@@ -1,11 +1,24 @@
 diagrams:
+  - attributes:
+      tables: [attributes, attribute_types, attribute_groups]
   - projects:
-      tables: [samples, projects]
+      tables: [projects, runs, samples]
   - devices:
       tables: [devices, device_types, device_statuses]
   - nextflow:
       tables: [nf_workflows, nf_heartbeat]
 
-nested_tables: [devices, device_types, device_statuses, samples, projects, nf_workflows, nf_heartbeat]
+nested_tables:
+  - attributes 
+  - attribute_types 
+  - attribute_groups 
+  - devices
+  - device_types
+  - device_statuses
+  - projects
+  - runs
+  - samples
+  - nf_workflows
+  - nf_heartbeat]
 
   

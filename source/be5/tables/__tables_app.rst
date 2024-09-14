@@ -5,6 +5,9 @@
 
   analyses.rst
   attachments.rst
+  attribute_groups.rst
+  attribute_types.rst
+  attributes.rst
   device_statuses.rst
   device_types.rst
   devices.rst

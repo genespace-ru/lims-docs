@@ -1,8 +1,8 @@
-runs
-====
+attribute_types
+===============
 
-Запуски
-  Запуски секвенатора
+Типы аттрибутов
+  Типы  аттрибутов (свойств) для аннотации SNV и CNV.
 
 .. list-table::
    :header-rows: 1
@@ -17,32 +17,28 @@ runs
        autoincrement
      - 
 
-   * - project_id
-     - KEYTYPE
+   * - title
+     - VARCHAR(20)
+     - Название типа аттрибута.
 
-       Reference: projects
-     - 
-
-   * - name
-     - VARCHAR(100)
-     - 
-
-   * - status
-     - ENUM: 
-        * completed
-        * in_progress
-     - 
-
-   * - data
+   * - description
      - TEXT
 
        can be null
-     - данные из/для файла запуска секвенатора
+     - Описание типа аттрибута.
+
+   * - comment
+     - TEXT
+
+       can be null
+     - Комментарий.
 
    * - creationDate___
      - TIMESTAMP
 
        can be null
+
+       Defult value: CURRENT_TIMESTAMP
      - 
 
    * - modificationDate___

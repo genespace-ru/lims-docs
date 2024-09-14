@@ -1,6 +1,30 @@
    hide circle
    skinparam linetype ortho
 
+   entity "projects" as projects{
+     --
+     *ID : KEYTYPE
+     name : VARCHAR(100)
+     description : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "runs" as runs{
+     --
+     *ID : KEYTYPE
+     project_id : KEYTYPE
+     name : VARCHAR(100)
+     status : ENUM('completed','in_progress')
+     data : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
    entity "samples" as samples{
      --
      *ID : KEYTYPE
@@ -25,14 +49,4 @@
      whoModified___ : VARCHAR(100)
     }
 
-   entity "projects" as projects{
-     --
-     *ID : KEYTYPE
-     name : VARCHAR(100)
-     description : TEXT
-     creationDate___ : TIMESTAMP
-     modificationDate___ : TIMESTAMP
-     whoInserted___ : VARCHAR(100)
-     whoModified___ : VARCHAR(100)
-    }
-
+   runs }o..|| projects

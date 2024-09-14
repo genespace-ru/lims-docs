@@ -1,5 +1,5 @@
 runs
-====
+^^^^
 
 Запуски
   Запуски секвенатора
@@ -39,27 +39,5 @@ runs
        can be null
      - данные из/для файла запуска секвенатора
 
-   * - creationDate___
-     - TIMESTAMP
-
-       can be null
-     - 
-
-   * - modificationDate___
-     - TIMESTAMP
-
-       can be null
-     - 
-
-   * - whoInserted___
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - whoModified___
-     - VARCHAR(100)
-
-       can be null
-     - 
+Служебные поля: creationDate___, modificationDate___, whoInserted___, whoModified___
 
