@@ -12,6 +12,7 @@
      comment : TEXT
      type : INT
      dictionary : VARCHAR(100)
+     level : ENUM('CNV','SNV','transcript')
      displayIfEmpty : ENUM('no','yes')
      displayOrder : VARCHAR(5)
      urlMask : VARCHAR(100)
@@ -48,5 +49,49 @@
      whoModified___ : VARCHAR(100)
     }
 
+   entity "attribute_resources" as attribute_resources{
+     --
+     *ID : KEYTYPE
+     attribute : INT
+     resource : INT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "resources" as resources{
+     --
+     *ID : KEYTYPE
+     type : ENUM('database','other','program','recommendation')
+     title : VARCHAR(20)
+     version : VARCHAR(20)
+     description : TEXT
+     url : VARCHAR(100)
+     license : VARCHAR(200)
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "resource_recommendations" as resource_recommendations{
+     --
+     *ID : KEYTYPE
+     resource : INT
+     recommendation : INT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   attribute_resources }o..|| attributes
+   attribute_resources }o..|| resources
    attributes }o..|| attribute_groups
    attributes }o..|| attribute_types
+   resource_recommendations }o..|| resources
+   resource_recommendations }o..|| resources

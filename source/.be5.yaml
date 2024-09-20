@@ -1,6 +1,12 @@
 diagrams:
   - attributes:
-      tables: [attributes, attribute_types, attribute_groups]
+      tables:
+        - attributes
+        - attribute_types
+        - attribute_groups
+        - attribute_resources
+        - resources
+        - resource_recommendations
   - projects:
       tables: [projects, runs, samples]
   - devices:
@@ -19,6 +25,6 @@ nested_tables:
   - runs
   - samples
   - nf_workflows
-  - nf_heartbeat]
+  - nf_heartbeat
 
   

@@ -61,6 +61,13 @@ attributes
      - VARCHAR(100)
      - Справочник для возможных значений аттрибута. Где это возможно используются значения из VEP и/или Genomenal.
 
+   * - level
+     - ENUM: 
+        * CNV
+        * SNV
+        * transcript
+     - Уровень к которому относится аттрибут - к самой SNV/CNV или транскрипту.
+
    * - displayIfEmpty
      - ENUM: 
         * no
