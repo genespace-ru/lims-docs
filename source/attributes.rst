@@ -11,3 +11,6 @@
 .. include:: ./be5/tables/attributes.rstincl
 .. include:: ./be5/tables/attribute_types.rstincl
 .. include:: ./be5/tables/attribute_groups.rstincl
+.. include:: ./be5/tables/attribute_sources.rstincl
+.. include:: ./be5/tables/databases.rstincl
+.. include:: ./be5/tables/programs.rstincl

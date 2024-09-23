@@ -17,6 +17,10 @@ attributes
        autoincrement
      - 
 
+   * - entity
+     - VARCHAR(50)
+     - Сущность, к которой относится данный аттрибут.
+
    * - group
      - INT
 
@@ -49,6 +53,8 @@ attributes
 
    * - comment
      - TEXT
+
+       can be null
      - Комментарий.
 
    * - type
@@ -60,6 +66,29 @@ attributes
    * - dictionary
      - VARCHAR(100)
      - Справочник для возможных значений аттрибута. Где это возможно используются значения из VEP и/или Genomenal.
+
+   * - rule
+     - INT
+
+       can be null
+
+       Reference: attribute_rules
+     - Правило, использованное для вычисления аттрибута.
+
+   * - storage
+     - ENUM: 
+        * json
+        * query
+     - Где хранится значение аттрибута.
+* json - в формате json поля 'attributes' соответствующей таблицы сущности.
+* query - вычисляется значением запроса и идет как поле значений запроса.
+
+   * - level
+     - ENUM: 
+        * CNV
+        * SNV
+        * transcript
+     - Уровень к которому относится аттрибут - к самой SNV/CNV или транскрипту.
 
    * - displayIfEmpty
      - ENUM: 
