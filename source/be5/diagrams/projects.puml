@@ -25,28 +25,173 @@
      whoModified___ : VARCHAR(100)
     }
 
-   entity "samples" as samples{
+   entity "run_samples" as run_samples{
      --
      *ID : KEYTYPE
-     name : VARCHAR(100)
-     type : VARCHAR(50)
-     template_id : KEYTYPE
+     run_id : KEYTYPE
+     sample_id : KEYTYPE
      plate : VARCHAR(100)
      well : VARCHAR(100)
-     index_plate : VARCHAR(100)
-     index_well : VARCHAR(100)
+     index_plate_well : VARCHAR(100)
      I7_index_id : VARCHAR(100)
      index1 : VARCHAR(100)
      I5_index_id : VARCHAR(100)
      index2 : VARCHAR(100)
-     description : TEXT
-     file_path : VARCHAR(300)
-     file_size : INT
-     metadata : TEXT
      creationDate___ : TIMESTAMP
      modificationDate___ : TIMESTAMP
      whoInserted___ : VARCHAR(100)
      whoModified___ : VARCHAR(100)
     }
 
+   entity "samples" as samples{
+     --
+     *ID : KEYTYPE
+     project : KEYTYPE
+     typeID : KEYTYPE
+     title : VARCHAR(100)
+     description : TEXT
+     metadata : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "sample_types" as sample_types{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(100)
+     description : TEXT
+     template : KEYTYPE
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "sample_templates" as sample_templates{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(100)
+     description : TEXT
+     data : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "file_info" as file_info{
+     --
+     *ID : KEYTYPE
+     fileName : VARCHAR(255)
+     mimeType : VARCHAR(100)
+     fileType : KEYTYPE
+     path : VARCHAR(255)
+     size : INT
+     project : KEYTYPE
+     entity : VARCHAR(255)
+     entityID : KEYTYPE
+     comment : VARCHAR(255)
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "file_types" as file_types{
+     --
+     *ID : KEYTYPE
+     suffix : VARCHAR(100)
+     icon : VARCHAR(200)
+     description : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "task_info" as task_info{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(20)
+     description : TEXT
+     comment : TEXT
+     params : JSON
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "task_runs" as task_runs{
+     --
+     *ID : KEYTYPE
+     project : KEYTYPE
+     sample : KEYTYPE
+     workflow : KEYTYPE
+     task_info : KEYTYPE
+     start : TIMESTAMP
+     end : TIMESTAMP
+     status : ENUM('completed','error','in_progress','scheduled')
+     params : JSON
+     log : TEXT
+     comment : VARCHAR(255)
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "workflow_info" as workflow_info{
+     --
+     *ID : KEYTYPE
+     file_info : KEYTYPE
+     title : VARCHAR(20)
+     description : TEXT
+     comment : TEXT
+     params : JSON
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "workflow_runs" as workflow_runs{
+     --
+     *ID : KEYTYPE
+     project : KEYTYPE
+     sample : KEYTYPE
+     workflow_info : KEYTYPE
+     start : TIMESTAMP
+     end : TIMESTAMP
+     status : ENUM('completed','error','in_progress','scheduled')
+     params : JSON
+     log : TEXT
+     comment : VARCHAR(255)
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   file_info }o..|| file_types
+   file_info }o..|| projects
+   run_samples }o..|| runs
+   run_samples }o..|| samples
    runs }o..|| projects
+   sample_types }o..|| sample_templates
+   samples }o..|| projects
+   samples }o..|| sample_types
+   task_runs }o..|| projects
+   task_runs }o..|| samples
+   task_runs }o..|| workflow_runs
+   task_runs }o..|| task_info
+   workflow_info }o..|| file_info
+   workflow_runs }o..|| projects
+   workflow_runs }o..|| samples
+   workflow_runs }o..|| workflow_info

@@ -28,6 +28,48 @@ run_samples
        Reference: samples
      - 
 
+   * - plate
+     - VARCHAR(100)
+
+       can be null
+     - 
+
+   * - well
+     - VARCHAR(100)
+
+       can be null
+     - 
+
+   * - index_plate_well
+     - VARCHAR(100)
+
+       can be null
+     - 
+
+   * - I7_index_id
+     - VARCHAR(100)
+
+       can be null
+     - 
+
+   * - index1
+     - VARCHAR(100)
+
+       can be null
+     - 
+
+   * - I5_index_id
+     - VARCHAR(100)
+
+       can be null
+     - 
+
+   * - index2
+     - VARCHAR(100)
+
+       can be null
+     - 
+
    * - creationDate___
      - TIMESTAMP
 

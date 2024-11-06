@@ -5,7 +5,7 @@
      --
      *ID : KEYTYPE
      entity : VARCHAR(50)
-     group : INT
+     groupID : INT
      title : VARCHAR(100)
      title_ru : VARCHAR(100)
      description : TEXT
@@ -13,11 +13,11 @@
      comment : TEXT
      type : INT
      dictionary : VARCHAR(100)
-     rule : INT
      storage : ENUM('json','query')
      level : ENUM('CNV','SNV','transcript')
+     editable : ENUM('no','yes')
      displayIfEmpty : ENUM('no','yes')
-     displayOrder : VARCHAR(5)
+     displayOrder : INT
      urlMask : VARCHAR(100)
      creationDate___ : TIMESTAMP
      modificationDate___ : TIMESTAMP
@@ -45,7 +45,8 @@
      description : TEXT
      description_ru : TEXT
      comment : TEXT
-     displayOrder : VARCHAR(5)
+     displayOrder : INT
+     viewName : VARCHAR(100)
      creationDate___ : TIMESTAMP
      modificationDate___ : TIMESTAMP
      whoInserted___ : VARCHAR(100)
@@ -57,19 +58,6 @@
      *ID : KEYTYPE
      attribute : INT
      resource : INT
-     comment : TEXT
-     creationDate___ : TIMESTAMP
-     modificationDate___ : TIMESTAMP
-     whoInserted___ : VARCHAR(100)
-     whoModified___ : VARCHAR(100)
-    }
-
-   entity "attribute_rules" as attribute_rules{
-     --
-     *ID : KEYTYPE
-     attribute : INT
-     code : TEXT
-     desription : TEXT
      comment : TEXT
      creationDate___ : TIMESTAMP
      modificationDate___ : TIMESTAMP
@@ -105,9 +93,9 @@
    entity "resources" as resources{
      --
      *ID : KEYTYPE
-     type : ENUM('database','other','program','recommendation')
-     title : VARCHAR(20)
-     version : VARCHAR(20)
+     type : ENUM('database','format','other','program','recommendation')
+     title : VARCHAR(100)
+     version : VARCHAR(50)
      description : TEXT
      url : VARCHAR(100)
      license : VARCHAR(200)
@@ -130,27 +118,71 @@
      whoModified___ : VARCHAR(100)
     }
 
+   entity "rule_sets" as rule_sets{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(100)
+     version : VARCHAR(50)
+     description : TEXT
+     recommendation : INT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "rules" as rules{
+     --
+     *ID : KEYTYPE
+     attribute : INT
+     code : TEXT
+     desription : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
    entity "snv_" as snv_{
      --
      *ID : KEYTYPE
-     VEP_ID : VARCHAR(50)
-     location : VARCHAR(50)
-     allele : VARCHAR(10)
+     vcf_chrom : VARCHAR(50)
+     vcf_pos : INT
+     vcf_id : VARCHAR(200)
+     vcf_ref : VARCHAR(50)
+     vcf_alt : VARCHAR(50)
+     vcf_qual : DECIMAL(4,1)
+     vcf_filter : VARCHAR(50)
+     vcf_info : TEXT
+     vcf_format : VARCHAR(1000)
+     attributes : JSON
      pathogenicity : INT
      pathogenicityAuthority : INT
-     attributes : JSON
      isAttached : ENUM('no','yes')
      isHidden : ENUM('no','yes')
      includeInReport : ENUM('no','yes')
      reportComment : ENUM('no','yes')
     }
 
-   entity "snv_transcripts_" as snv_transcripts_{
+   entity "snv_features_" as snv_features_{
      --
      *ID : KEYTYPE
-     SNV : INT
-     transcript : VARCHAR(50)
+     snv : INT
+     feature : VARCHAR(50)
      attributes : JSON
+    }
+
+   entity "snv_meta_" as snv_meta_{
+     --
+     section : VARCHAR(50)
+     value : VARCHAR(10000)
+     ID : VARCHAR(50)
+     description : VARCHAR(200)
+     type : ENUM('Character','Flag','Float','Integer','String')
+     number : VARCHAR(2)
+     url : VARCHAR(200)
     }
 
    entity "snv_history" as snv_history{
@@ -178,16 +210,16 @@
 
    attribute_resources }o..|| attributes
    attribute_resources }o..|| resources
-   attribute_rules }o..|| attributes
    attributes }o..|| attribute_groups
    attributes }o..|| attribute_types
-   attributes }o..|| attribute_rules
    pathogenicity_authority }o..|| resources
    resource_recommendations }o..|| resources
    resource_recommendations }o..|| resources
+   rule_sets }o..|| resources
+   rules }o..|| attributes
    snv_ }o..|| pathogenicity
    snv_ }o..|| pathogenicity_authority
+   snv_features_ }o..|| snv_
    snv_history }o..|| pathogenicity
    snv_history }o..|| pathogenicity_authority
-   snv_transcripts_ }o..|| snv_
    snv_transcripts_history }o..|| snv_history

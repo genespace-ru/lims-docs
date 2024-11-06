@@ -1,8 +1,8 @@
-sample_templates
-================
+sample_types
+============
 
-Sample templates
-  Шаблон для описания свойств образца. Содержит описание набора аттрибутов, которые используются для описания образца.
+Sample type
+  Типы образцов. Например, метагеномика, кровь, опухоль и т.п.
 
 .. list-table::
    :header-rows: 1
@@ -25,9 +25,13 @@ Sample templates
        can be null
      - 
 
-   * - data
-     - TEXT
-     - Шаблон для описания свойств образца данных (в разработке @todo).
+   * - template
+     - KEYTYPE
+
+       can be null
+
+       Reference: sample_templates
+     - Шаблон для описания мета-данных для соответствующего типа образцов.
 
    * - comment
      - TEXT

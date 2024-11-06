@@ -21,7 +21,7 @@ attributes
      - VARCHAR(50)
      - Сущность, к которой относится данный аттрибут.
 
-   * - group
+   * - groupID
      - INT
 
        can be null
@@ -65,15 +65,9 @@ attributes
 
    * - dictionary
      - VARCHAR(100)
-     - Справочник для возможных значений аттрибута. Где это возможно используются значения из VEP и/или Genomenal.
-
-   * - rule
-     - INT
 
        can be null
-
-       Reference: attribute_rules
-     - Правило, использованное для вычисления аттрибута.
+     - Справочник для возможных значений аттрибута. Где это возможно используются значения из VEP и/или Genomenal.
 
    * - storage
      - ENUM: 
@@ -90,6 +84,12 @@ attributes
         * transcript
      - Уровень к которому относится аттрибут - к самой SNV/CNV или транскрипту.
 
+   * - editable
+     - ENUM: 
+        * no
+        * yes
+     - Можно ли редактировать этот аттрибут вручную.
+
    * - displayIfEmpty
      - ENUM: 
         * no
@@ -97,9 +97,9 @@ attributes
      - Нужно ли показывать значение этого аттрибута в представлении, если оно пустое.
 
    * - displayOrder
-     - VARCHAR(5)
+     - INT
 
-       can be null
+       Defult value: 99
      - Порядок отображения значения аттрибута в представлении.
 
    * - urlMask
@@ -110,8 +110,6 @@ attributes
 
    * - creationDate___
      - TIMESTAMP
-
-       can be null
 
        Defult value: CURRENT_TIMESTAMP
      - 
@@ -125,7 +123,7 @@ attributes
    * - whoInserted___
      - VARCHAR(100)
 
-       can be null
+       Defult value: 'Administrator'
      - 
 
    * - whoModified___

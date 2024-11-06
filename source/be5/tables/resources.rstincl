@@ -20,17 +20,18 @@ resources
    * - type
      - ENUM: 
         * database
+        * format
         * other
         * program
         * recommendation
      - Тип ресурса.
 
    * - title
-     - VARCHAR(20)
+     - VARCHAR(100)
      - Название ресурса.
 
    * - version
-     - VARCHAR(20)
+     - VARCHAR(50)
 
        can be null
      - Версия ресурса.

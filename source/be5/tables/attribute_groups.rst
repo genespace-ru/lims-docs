@@ -46,15 +46,19 @@ attribute_groups
      - Комментарий.
 
    * - displayOrder
-     - VARCHAR(5)
+     - INT
 
        can be null
      - Порядок отображения групп аттрибутов в представлении.
 
-   * - creationDate___
-     - TIMESTAMP
+   * - viewName
+     - VARCHAR(100)
 
        can be null
+     - Название view (из snv_.yaml) для отображения этой группы свойств.
+
+   * - creationDate___
+     - TIMESTAMP
 
        Defult value: CURRENT_TIMESTAMP
      - 
@@ -68,7 +72,7 @@ attribute_groups
    * - whoInserted___
      - VARCHAR(100)
 
-       can be null
+       Defult value: 'Administrator'
      - 
 
    * - whoModified___

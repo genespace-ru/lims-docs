@@ -1,21 +1,35 @@
 diagrams:
   - attributes:
-      tables: 
+      tables:
         - attributes
         - attribute_types
         - attribute_groups
         - attribute_resources
-        - attribute_rules
         - pathogenicity
         - pathogenicity_authority
         - resources
         - resource_recommendations
+        - rule_sets
+        - rules
         - snv_
-        - snv_transcripts_
+        - snv_features_
+        - snv_meta_
         - snv_history
         - snv_transcripts_history
   - projects:
-      tables: [projects, runs, samples]
+      tables: 
+        - projects
+        - runs
+        - run_samples
+        - samples
+        - sample_types
+        - sample_templates
+        - file_info
+        - file_types
+        - task_info
+        - task_runs
+        - workflow_info
+        - workflow_runs
   - devices:
       tables: [devices, device_types, device_statuses]
   - nextflow:

@@ -1,5 +1,5 @@
-attribute_rules
-===============
+rules
+=====
 
 Правила
   Правила для вычисления аттрибутов для аннотации SNV и CNV.
@@ -25,7 +25,7 @@ attribute_rules
 
    * - code
      - TEXT
-     - Код (JavaScript) для вычисления значения аттрибута.
+     - Код (Java/Groovy) для вычисления значения аттрибута.
 
    * - desription
      - TEXT

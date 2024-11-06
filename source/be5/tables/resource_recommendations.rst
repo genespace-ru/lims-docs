@@ -38,8 +38,6 @@ resource_recommendations
    * - creationDate___
      - TIMESTAMP
 
-       can be null
-
        Defult value: CURRENT_TIMESTAMP
      - 
 
@@ -52,7 +50,7 @@ resource_recommendations
    * - whoInserted___
      - VARCHAR(100)
 
-       can be null
+       Defult value: 'Administrator'
      - 
 
    * - whoModified___

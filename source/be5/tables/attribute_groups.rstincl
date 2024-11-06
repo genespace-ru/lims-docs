@@ -46,10 +46,16 @@ attribute_groups
      - Комментарий.
 
    * - displayOrder
-     - VARCHAR(5)
+     - INT
 
        can be null
      - Порядок отображения групп аттрибутов в представлении.
+
+   * - viewName
+     - VARCHAR(100)
+
+       can be null
+     - Название view (из snv_.yaml) для отображения этой группы свойств.
 
 Служебные поля: creationDate___, modificationDate___, whoInserted___, whoModified___
 

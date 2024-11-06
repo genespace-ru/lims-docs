@@ -1,8 +1,8 @@
-sample_templates
-================
+file_types
+==========
 
-Sample templates
-  Шаблон для описания свойств образца. Содержит описание набора аттрибутов, которые используются для описания образца.
+Типы файлов
+  Типы  файлов с данными и результатами.
 
 .. list-table::
    :header-rows: 1
@@ -13,11 +13,19 @@ Sample templates
 
    * - ID
      - KEYTYPE PK
+
+       autoincrement
      - 
 
-   * - title
+   * - suffix
      - VARCHAR(100)
-     - 
+     - Тип файла.
+
+   * - icon
+     - VARCHAR(200)
+
+       can be null
+     - Иконка для отображения типа файлов.
 
    * - description
      - TEXT
@@ -25,15 +33,11 @@ Sample templates
        can be null
      - 
 
-   * - data
-     - TEXT
-     - Шаблон для описания свойств образца данных (в разработке @todo).
-
    * - comment
      - TEXT
 
        can be null
-     - 
+     - Комментарий.
 
    * - creationDate___
      - TIMESTAMP

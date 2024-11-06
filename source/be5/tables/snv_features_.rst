@@ -1,11 +1,11 @@
-snv_transcripts_
-================
+snv_features_
+=============
 
-SNV (транскрипты)
-  Список транскриптов и их свойств для соответствующей SNV.
+SNV (features)
+  Список features SNV (транскрипт, регуляторный район и т.п.) и их свойств для соответствующей SNV.
 Для каждого образца создается отдельная таблица,
 где название образца является суффиксом в названии таблицы.
-Например: snv_transcripts_sample1.
+Например: snv_features_sample1.
 
 .. list-table::
    :header-rows: 1
@@ -20,15 +20,15 @@ SNV (транскрипты)
        autoincrement
      - 
 
-   * - SNV
+   * - snv
      - INT
 
        Reference: snv_
      - ссылка на SNV, к которой относится данный транскрипт
 
-   * - transcript
+   * - feature
      - VARCHAR(50)
-     - Идентификатор транскрипта.
+     - Тип особенности (Transcript, RegulatoryFeature и т.п.).
 
    * - attributes
      - JSON

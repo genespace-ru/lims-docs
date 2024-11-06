@@ -17,84 +17,26 @@ samples
        autoincrement
      - 
 
-   * - name
-     - VARCHAR(100)
-     - 
+   * - project
+     - KEYTYPE
 
-   * - type
-     - VARCHAR(50)
-     - 
+       Reference: projects
+     - Проект, которому принадлежит данный образец.
 
-   * - template_id
+   * - typeID
      - KEYTYPE
 
        can be null
 
-       Reference: sample_templates
-     - 
+       Reference: sample_types
+     - Тип данных образца.
 
-   * - plate
+   * - title
      - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - well
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - index_plate
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - index_well
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - I7_index_id
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - index1
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - I5_index_id
-     - VARCHAR(100)
-
-       can be null
-     - 
-
-   * - index2
-     - VARCHAR(100)
-
-       can be null
      - 
 
    * - description
      - TEXT
-
-       can be null
-     - 
-
-   * - file_path
-     - VARCHAR(300)
-
-       can be null
-     - 
-
-   * - file_size
-     - INT
 
        can be null
      - 
@@ -105,10 +47,16 @@ samples
        can be null
      - 
 
+   * - comment
+     - TEXT
+
+       can be null
+     - 
+
    * - creationDate___
      - TIMESTAMP
 
-       can be null
+       Defult value: CURRENT_TIMESTAMP
      - 
 
    * - modificationDate___
@@ -120,7 +68,7 @@ samples
    * - whoInserted___
      - VARCHAR(100)
 
-       can be null
+       Defult value: 'Administrator'
      - 
 
    * - whoModified___

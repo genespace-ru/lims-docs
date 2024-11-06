@@ -36,8 +36,6 @@ attribute_types
    * - creationDate___
      - TIMESTAMP
 
-       can be null
-
        Defult value: CURRENT_TIMESTAMP
      - 
 
@@ -50,7 +48,7 @@ attribute_types
    * - whoInserted___
      - VARCHAR(100)
 
-       can be null
+       Defult value: 'Administrator'
      - 
 
    * - whoModified___

@@ -1,8 +1,8 @@
-resources
+rule_sets
 =========
 
-Ресурсы (для аннотации)
-  Программы, базы данных и рекоммендации, используемые для аннотации SNV и CNV.
+Наборы правил
+  Наборы правил, используемые для аннотации SNV и CNV.
 
 .. list-table::
    :header-rows: 1
@@ -17,18 +17,9 @@ resources
        autoincrement
      - 
 
-   * - type
-     - ENUM: 
-        * database
-        * format
-        * other
-        * program
-        * recommendation
-     - Тип ресурса.
-
    * - title
      - VARCHAR(100)
-     - Название ресурса.
+     - Название набора правил.
 
    * - version
      - VARCHAR(50)
@@ -42,17 +33,13 @@ resources
        can be null
      - 
 
-   * - url
-     - VARCHAR(100)
+   * - recommendation
+     - INT
 
        can be null
-     - Ссылка на сайт ресурса.
 
-   * - license
-     - VARCHAR(200)
-
-       can be null
-     - Лицензия, по которой распространяется ресурс.
+       Reference: resources
+     - Ссылка на рекомендации, на основе которых построен данный набор правил.
 
    * - comment
      - TEXT
