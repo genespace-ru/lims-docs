@@ -22,6 +22,7 @@
   reports.rst
   resource_recommendations.rst
   resources.rst
+  rule_set_rules.rst
   rule_sets.rst
   rules.rst
   run_applications.rst

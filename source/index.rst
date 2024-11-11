@@ -6,6 +6,7 @@ LIMS
    :caption: LIMS
 
    attributes.rst
+   rules.rst
    projects.rst
    devices.rst
 

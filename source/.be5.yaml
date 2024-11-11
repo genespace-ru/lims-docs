@@ -9,8 +9,9 @@ diagrams:
         - pathogenicity_authority
         - resources
         - resource_recommendations
-        - rule_sets
         - rules
+        - rule_sets
+        - rule_set_rules
         - snv_
         - snv_features_
         - snv_meta_
@@ -30,6 +31,8 @@ diagrams:
         - task_runs
         - workflow_info
         - workflow_runs
+  - rules:
+      tables: [attributes, rule_sets, rules, rule_set_rules]
   - devices:
       tables: [devices, device_types, device_statuses]
   - nextflow:

@@ -1,0 +1,71 @@
+   hide circle
+   skinparam linetype ortho
+
+   entity "attributes" as attributes{
+     --
+     *ID : KEYTYPE
+     entity : VARCHAR(50)
+     groupID : INT
+     title : VARCHAR(100)
+     title_ru : VARCHAR(100)
+     description : TEXT
+     description_ru : TEXT
+     comment : TEXT
+     type : INT
+     dictionary : VARCHAR(100)
+     storage : ENUM('json','query')
+     level : ENUM('CNV','SNV','transcript')
+     editable : ENUM('no','yes')
+     displayIfEmpty : ENUM('no','yes')
+     displayOrder : INT
+     urlMask : VARCHAR(100)
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "rule_sets" as rule_sets{
+     --
+     *ID : KEYTYPE
+     title : VARCHAR(100)
+     version : VARCHAR(50)
+     description : TEXT
+     recommendation : INT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "rules" as rules{
+     --
+     *ID : KEYTYPE
+     input : JSON
+     priority : INT
+     attribute : INT
+     code : TEXT
+     desription : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   entity "rule_set_rules" as rule_set_rules{
+     --
+     *ID : KEYTYPE
+     rule_set : INT
+     rule : INT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
+   rule_set_rules }o..|| rule_sets
+   rule_set_rules }o..|| rules
+   rules }o..|| attributes

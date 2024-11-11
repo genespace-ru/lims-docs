@@ -118,6 +118,21 @@
      whoModified___ : VARCHAR(100)
     }
 
+   entity "rules" as rules{
+     --
+     *ID : KEYTYPE
+     input : JSON
+     priority : INT
+     attribute : INT
+     code : TEXT
+     desription : TEXT
+     comment : TEXT
+     creationDate___ : TIMESTAMP
+     modificationDate___ : TIMESTAMP
+     whoInserted___ : VARCHAR(100)
+     whoModified___ : VARCHAR(100)
+    }
+
    entity "rule_sets" as rule_sets{
      --
      *ID : KEYTYPE
@@ -132,12 +147,11 @@
      whoModified___ : VARCHAR(100)
     }
 
-   entity "rules" as rules{
+   entity "rule_set_rules" as rule_set_rules{
      --
      *ID : KEYTYPE
-     attribute : INT
-     code : TEXT
-     desription : TEXT
+     rule_set : INT
+     rule : INT
      comment : TEXT
      creationDate___ : TIMESTAMP
      modificationDate___ : TIMESTAMP
@@ -215,6 +229,8 @@
    pathogenicity_authority }o..|| resources
    resource_recommendations }o..|| resources
    resource_recommendations }o..|| resources
+   rule_set_rules }o..|| rule_sets
+   rule_set_rules }o..|| rules
    rule_sets }o..|| resources
    rules }o..|| attributes
    snv_ }o..|| pathogenicity
